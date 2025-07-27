@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self, value):
         self.value = value
@@ -71,54 +70,6 @@ class DoublyLinkedList:
         self.length -= 1
         return temp
 
-    ### WRITE GET METHOD HERE ###
-    #                           #
-    #                           #
-    #                           #
-    #                           #
-    #############################
-    # def get(self, index):
-    #     if index < 0 or index >= self.length:
-    #         return None
-    #     temp = self.head
-    #     if index < self.length/2: # this line means we are in the first half of the list
-    #         for _ in range(index):
-    #             temp = temp.next
-    #     else:
-    #         temp = self.tail
-    #         for _ in range(self.length-1, index, -1): # this line means we are in the second half of the list, starting from the tail then going backwards
-                    # first self.length-1 this means we start from the last index
-                    # index is the index we want to get
-                    # # so we go backwards until we reach the index we want
-    #             temp = temp.prev
-    #     return temp
-
-    # def get(self, index):
-    #     if index < 0 or index >= self.length:
-    #         return None
-    #     temp = self.head
-    #     if index < self.length/2:
-    #         for _ in range(index):
-    #             temp = temp.next
-    #     else:
-    #         temp = self.tail
-    #         for _ in range(self.length-1, index, -1):
-    #             temp = temp.prev
-    #     return temp
-
-# def get(self, index):
-#     if index < 0 or index >= self.length:
-#         return None
-#     temp = self.head
-#     if index < self.length/2:
-#         for _ in range(index):
-#             temp = temp.next
-#     else:
-#         temp = self.tail
-#         for _ in range(self.length-1, index, -1):
-#             temp = temp.prev
-#     return temp
-
     def get(self, index):
         if index < 0 or index >= self.length:
             return None
@@ -128,30 +79,90 @@ class DoublyLinkedList:
                 temp = temp.next
         else:
             temp = self.tail
-            for _ in range(self.length-1, index, -1):
-                temp = temp.prev
+            for _ in range(self.length - 1, index, -1):
+                temp = temp.prev  
         return temp
         
+    def set_value(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+    
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
 
-my_doubly_linked_list = DoublyLinkedList(0)
-my_doubly_linked_list.append(1)
-my_doubly_linked_list.append(2)
+        new_node = Node(value)
+        before = self.get(index - 1)
+        after = before.next
+
+        new_node.prev = before
+        new_node.next = after
+        before.next = new_node
+        after.prev = new_node
+        
+        self.length += 1   
+        return True  
+
+  
+
+
+my_doubly_linked_list = DoublyLinkedList(1)
 my_doubly_linked_list.append(3)
 
-print('Get node from first half of DLL:')
-print(my_doubly_linked_list.get(1).value)
 
-print('\nGet node from second half of DLL:')
-print(my_doubly_linked_list.get(2).value)
+print('DLL before insert():')
+my_doubly_linked_list.print_list()
+
+
+my_doubly_linked_list.insert(1,2)
+
+print('\nDLL after insert(2) in middle:')
+my_doubly_linked_list.print_list()
+
+
+my_doubly_linked_list.insert(0,0)
+
+print('\nDLL after insert(0) at beginning:')
+my_doubly_linked_list.print_list()
+
+
+my_doubly_linked_list.insert(4,4)
+
+print('\nDLL after insert(4) at end:')
+my_doubly_linked_list.print_list()
+
 
 
 """
     EXPECTED OUTPUT:
     ----------------
-    Get node from first half of DLL:
+    DLL before insert():
     1
+    3
 
-    Get node from second half of DLL:
+    DLL after insert(2) in middle:
+    1
     2
+    3
+
+    DLL after insert(0) at beginning:
+    0
+    1
+    2
+    3
+
+    DLL after insert(4) at end:
+    0
+    1
+    2
+    3
+    4
 
 """

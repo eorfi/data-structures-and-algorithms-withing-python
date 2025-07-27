@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self, value):
         self.value = value
@@ -71,54 +70,6 @@ class DoublyLinkedList:
         self.length -= 1
         return temp
 
-    ### WRITE GET METHOD HERE ###
-    #                           #
-    #                           #
-    #                           #
-    #                           #
-    #############################
-    # def get(self, index):
-    #     if index < 0 or index >= self.length:
-    #         return None
-    #     temp = self.head
-    #     if index < self.length/2: # this line means we are in the first half of the list
-    #         for _ in range(index):
-    #             temp = temp.next
-    #     else:
-    #         temp = self.tail
-    #         for _ in range(self.length-1, index, -1): # this line means we are in the second half of the list, starting from the tail then going backwards
-                    # first self.length-1 this means we start from the last index
-                    # index is the index we want to get
-                    # # so we go backwards until we reach the index we want
-    #             temp = temp.prev
-    #     return temp
-
-    # def get(self, index):
-    #     if index < 0 or index >= self.length:
-    #         return None
-    #     temp = self.head
-    #     if index < self.length/2:
-    #         for _ in range(index):
-    #             temp = temp.next
-    #     else:
-    #         temp = self.tail
-    #         for _ in range(self.length-1, index, -1):
-    #             temp = temp.prev
-    #     return temp
-
-# def get(self, index):
-#     if index < 0 or index >= self.length:
-#         return None
-#     temp = self.head
-#     if index < self.length/2:
-#         for _ in range(index):
-#             temp = temp.next
-#     else:
-#         temp = self.tail
-#         for _ in range(self.length-1, index, -1):
-#             temp = temp.prev
-#     return temp
-
     def get(self, index):
         if index < 0 or index >= self.length:
             return None
@@ -128,30 +79,48 @@ class DoublyLinkedList:
                 temp = temp.next
         else:
             temp = self.tail
-            for _ in range(self.length-1, index, -1):
-                temp = temp.prev
+            for _ in range(self.length - 1, index, -1):
+                temp = temp.prev  
         return temp
         
+    def set_value(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+    
 
-my_doubly_linked_list = DoublyLinkedList(0)
-my_doubly_linked_list.append(1)
-my_doubly_linked_list.append(2)
+    
+  
+my_doubly_linked_list = DoublyLinkedList(11)
 my_doubly_linked_list.append(3)
+my_doubly_linked_list.append(23)
+my_doubly_linked_list.append(7)
 
-print('Get node from first half of DLL:')
-print(my_doubly_linked_list.get(1).value)
+print('DLL before set_value():')
+my_doubly_linked_list.print_list()
 
-print('\nGet node from second half of DLL:')
-print(my_doubly_linked_list.get(2).value)
+my_doubly_linked_list.set_value(1,4)
+
+print('\nDLL after set_value():')
+my_doubly_linked_list.print_list()
+
 
 
 """
     EXPECTED OUTPUT:
     ----------------
-    Get node from first half of DLL:
-    1
+    DLL before set_value():
+    11
+    3
+    23
+    7
 
-    Get node from second half of DLL:
-    2
+    DLL after set_value():
+    11
+    4
+    23
+    7
 
 """
