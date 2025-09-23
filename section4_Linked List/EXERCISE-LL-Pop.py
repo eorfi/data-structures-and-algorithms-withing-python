@@ -49,8 +49,18 @@ class LinkedList:
             self.head = 0
             self.tail = 0
         return temp
-
-
+    # temp is used to traverse the list until the last node.
+    # pre will lag one step behind temp, so when temp reaches the last node, pre will be the second-to-last node.
+    ###########################
+    # Loop until temp reaches the last node (where temp.next is None).
+    # During each iteration:    
+    # pre becomes the current temp.
+    # temp moves one step forward (temp.next).
+    #####################################
+    # self.tail = pre
+    # self.tail.next = None
+    # Updates the list’s tail to the new last node (pre).
+    # Disconnects the old last node (temp) by setting tail.next = None.
 
 
  

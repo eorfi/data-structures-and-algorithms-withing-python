@@ -230,7 +230,7 @@ class LinkedList:
     #     self.head = dummy_node.next
 
     def reverse_between(self, start_index, end_index):
-        dummy_node = None(0)
+        dummy_node = Node(0)
         dummy_node.next = self.head
         previous_node = dummy_node
         

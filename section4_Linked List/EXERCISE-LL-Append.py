@@ -1,7 +1,7 @@
 class Node:
     def __init__(self, value):
         self.value = value
-        self.next = None
+        self.next = None  # Pointer to the next node in the list
         
 
 class LinkedList:
@@ -31,7 +31,7 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
         self.length += 1
-        return True
+        return True # why am doing this line? to return True if the append was successful
         
         #################################
         # FINISH WRITING APPEND METHOD  #

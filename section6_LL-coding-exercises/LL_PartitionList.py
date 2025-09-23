@@ -205,7 +205,6 @@ class LinkedList:
 # As you work through the pseudo-code, I recommend sketching the nodes, pointers, and each step on paper. This visual representation will greatly aid in understanding and tracking the process.
 
 
-
 # 📋 Pseudocode Outline
 
 # Define the method partition_list that takes self and x as arguments.

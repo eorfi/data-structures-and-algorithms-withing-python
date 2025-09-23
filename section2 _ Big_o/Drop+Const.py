@@ -7,7 +7,8 @@ def print_items(n):
 
 # the drop non dominant term it is O(n) + O(n) = O(2n) = O(n)
 # This is a linear time complexity, as the constant factor is dropped in Big O notation.
-# it is two loopa make the same time complexity as one loop
+# it is two loops make the same time complexity as one loop
+# bec both of them looping through the same n
 
 
 

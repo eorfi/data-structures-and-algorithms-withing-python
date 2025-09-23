@@ -58,7 +58,7 @@ class LinkedList:
     def find_middle_node(self):
         slow = self.head
         fast = self.head
-        while fast is not None and fast.next is not None:
+        while fast is not None and fast.next is not None: # in this line why am doing fast.next is not None --> to avoid error when fast is at the last node and we try to access fast.next.next which will give error as fast.next is None ***
             slow = slow.next
             fast = fast.next.next
         return slow

@@ -70,6 +70,8 @@ class LinkedList:
         self.length -= 1
         if self.length == 0:
             self.tail = None
+            # why am doing this line:
+            # because if we don't do this line, then the tail will still be pointing to the old node which is now removed from the list
         return temp
 
 

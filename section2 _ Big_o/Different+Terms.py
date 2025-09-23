@@ -11,6 +11,8 @@ def print_items(a,b):
 # And there is a differnt type called 0(a*b) where a is the size of the first loop and b is the size of the second loop
 # This is a linear time complexity for each loop, but they are independent of each other
 
+# there for the overall time complexity is O(n + m)
+# because the two loops are independent of each other
 
 
 print_items(1, 10)

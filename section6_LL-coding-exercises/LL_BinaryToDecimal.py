@@ -64,7 +64,7 @@ class LinkedList:
         num = 0
         current = self.head
         while current:
-            num * 2 + current.value
+            num = num * 2 + current.value
             current = current.next
         return num
 
