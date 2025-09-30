@@ -1,0 +1,18 @@
+# stack: you can only get to the last item added
+# queue: you can only get to the first item added
+
+# stack: LIFO (last in, first out)
+# queue: FIFO (first in, first out)
+
+# stack in list you just use have to to add and remove form the same end
+# queue in list you have to add to one end and remove from the other end
+
+# stack is o(1) for adding and removing
+# queue is o(1) for adding and removing if you use collections.deque
+
+# * in queue you add on one end and remove from the other end
+# * in stack you add and remove from the same end
+
+# queue list
+# remove and adding from the end is o(1)
+# remove and adding from the the other end is o(n)
