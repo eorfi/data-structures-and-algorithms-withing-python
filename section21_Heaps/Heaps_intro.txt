@@ -1,0 +1,20 @@
+
+So now we're going to do heaps.
+
+And here is an example of a heap.
+
+And you can see this looks very similar to a binary search tree.
+
+And it is a binary tree.
+
+But the numbers are not distributed in the same way with a heap.
+
+Each node has a number that is higher than all of its descendants, which means the highest value will
+
+always be at the top.
+
+And also this value here will be greater than its descendants, and this value here will be greater
+
+than its descendants.
+
+A key characteristic of a heap is that it is a complete tree, and in the binary search tree section

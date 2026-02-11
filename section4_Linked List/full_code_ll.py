@@ -44,8 +44,8 @@ class LinkedList:
         self.tail.next = None
         self.length -=1
         if self.length == 0:
-            self.head = 0
-            self.tail = 0
+            self.head = None
+            self.tail = None
         return temp
 
     def prepend(self, value):
@@ -221,4 +221,7 @@ class LinkedList:
             second.next = first
             prev = first 
             first = first.next
-        self.head = dummy.next
+        self.head = dummy
+
+        
+        

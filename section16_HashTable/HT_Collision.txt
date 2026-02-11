@@ -1,0 +1,78 @@
+hash table collision
+A hash table collision occurs when two different keys produce the same hash value, causing them to be mapped to the same index in the hash table. This can lead to issues with data retrieval and storage, as the hash table must handle these collisions effectively to maintain performance.
+There are several common methods to handle hash table collisions:
+1. Chaining: This method involves creating a linked list (or another data structure) at each index of the hash table. When a collision occurs, the new key-value pair is simply added to the list at that index. This allows multiple items to be stored at the same index without overwriting each other.
+2. Open Addressing: In this method, when a collision occurs, the hash table searches
+for the next available index using a probing sequence. Common probing techniques include linear probing, quadratic probing, and double hashing.
+3. Cuckoo Hashing: This method uses two or more hash functions and two or
+    more hash tables. When a collision occurs, the existing key is "kicked out" and rehashed into the other table using a different hash function. This process continues until all keys are placed without collisions.
+4. Robin Hood Hashing: This technique aims to minimize the variance in probe lengths by ensuring that keys with longer probe sequences can "steal" slots from keys with shorter probe sequences during collisions.
+Effective collision resolution is crucial for maintaining the efficiency of hash table operations, such as insertion, deletion
+, and lookup. The choice of collision resolution method can significantly impact the performance of a hash table, especially as the load factor increases.  
+Understanding and implementing appropriate collision resolution strategies is essential for developers working with hash tables in various applications.
+
+By choosing the right method for handling collisions, developers can ensure that their hash table implementations remain efficient and performant, even under heavy load.
+
+___________________________
+
+So now let's talk about collisions.
+
+So let's bring up an address space here and bring in some key value pairs like this.
+
+So a collision happens when you put a key value pair at an address where there was already a key value
+
+pair.
+
+So in the last video we talked about how is it that we have a second key value pair go in at this address
+
+without overwriting the last one?
+
+And the way we're going to do that is both of these key value pairs exist within another list at that
+
+address of two.
+
+But for the sake of keeping this a little cleaner, I'm just putting them in here like this.
+
+So this technique of dealing with collisions, where you just put them at the same address, is called
+
+separate chaining.
+
+So in another popular way of dealing with collisions, if we already have a key value pair at the address
+
+that this maps to, what you do is you go down until you find an empty address and you put the key value
+
+pair there.
+
+And then if you have another one, you're going to keep going until you find an empty spot like this.
+
+And then store this.
+
+This is called linear probing.
+
+And that is a form of open addressing.
+
+And there are a lot of ways to do this with open addressing.
+
+Linear probing is just one of them, but this makes it where you don't have more than one key value
+
+pair at any address.
+
+So separate chaining is what we're going to do in this course.
+
+So I'm going to take these I'm going to move them up.
+
+And this is what it's going to look like when we do this.
+
+Now another way of doing separate chaining.
+
+Let's remove these is instead of having lists that are all stored at that address in our list is we
+
+can have linked lists at those addresses like this.
+
+And then say you're going to look for paint.
+
+You go to the address of two, and then you would iterate through the linked list until you find it.
+
+But I'm going to bring these back since this is the way we're going to do it.
+
+And that is a few different ways of dealing with collisions.

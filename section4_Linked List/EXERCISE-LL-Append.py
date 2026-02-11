@@ -42,6 +42,9 @@ class LinkedList:
 
 
 
+# 1. Why self.lenght += 1 is outside the else block:
+
+# Because you need to increment length in BOTH cases:
 
 my_linked_list = LinkedList(1)
 my_linked_list.make_empty()

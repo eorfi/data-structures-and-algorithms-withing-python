@@ -1,0 +1,155 @@
+already seen a tree in this course.
+
+It's a linked list.
+
+So a linked list is just a tree that doesn't fork, but it is actually a form of a tree.
+
+So we'll use this as the starting point for creating the tree for this section.
+
+________________________________________________________________
+
+full tree:
+
+        1
+       / \
+      2   3
+     / \   \
+    4   5   6
+
+means every node either points to zero nodes or two nodes.
+
+this ia a non full tree:
+
+        1
+       / \
+      2   3
+     / \   \
+    4   5   6
+       /
+      7
+
+________________________________________________________________
+
+perfect tree:
+
+        1
+       / \
+      2   3
+     / \  / \
+    4  5 6  7
+
+means every node either points to zero nodes or two nodes and all leaf nodes are at the same depth.
+that mean if completely filled except maybe the last level.
+
+________________________________________________________________
+
+complete tree:
+
+        1
+       / \
+      2   3
+     / \  /
+    4  5 6  
+
+means every node either points to zero nodes or two nodes and all leaf nodes are at the same depth except maybe the last level.
+that mean if completely filled except maybe the last level and all nodes are as far left as possible
+________________________________________________________________
+parent and child nodes:
+
+        1  -> parent
+       / \
+      2   3 -> child
+      |
+    child
+
+child has the same parent
+and if child has more than one parent then it is not a tree
+
+leafs:
+        1
+       / \
+      2   3
+     / \   \
+    4   5   6 -> leafs
+
+a leaf is a node that does not point to any other nodes, does not have any children.
+
+________________________________________________________________
+ancestor and descendant nodes:
+
+        1  -> ancestor
+       / \
+      2   3 -> descendant
+      |
+    descendant
+________________________________________________________________
+
+binary search tree:
+
+is order for it to be a binary search tree, the nodes have to be laid out in a particular way.
+                    
+
+        4   
+       / \
+      2   6
+     / \ / \
+    1  3 5  7
+
+that means if the node is greater than the parent node, it goes to the right.
+if the node is less than the parent node, it goes to the left.
+if the node is equal to the parent node, it can go either left or right.
+
+________________________________________________________________
+
+binary search tree big O:
+
+if you have "one node" -> 2^1-1 = 1 approximately 2^1, 2^h where h is the height of the tree 
+if you have "two nodes" -> 2^2-1 = 3 approximately 2^2
+if you have "three nodes" -> 2^3-1 = 7 approximately 2^3
+if you have "four nodes" -> 2^4-1 = 15 approximately 2^4
+
+if you have "h nodes" -> 2^h-1 approximately 2^h
+if you have "n nodes" -> h = log(n)
+so the height of the tree is log(n)
+so the big O of a binary search tree is O(log n)
+
+and this is a divide and conquer algorithm.
+________________________________________________________________
+
+for calculating time completexity of a tree we used perfect binary tree.
+because it is the most balanced tree.
+because it is the most efficient tree.
+because it is the most common tree.
+because it is the most optimal tree.
+________________________________________________________________
+
+if a tree never forks to the left or right, it is a linked list.
+
+like this one:
+        1
+         \
+          2
+           \
+            3
+             \
+              4
+this tree has a height of 4.
+and it has 4 nodes. 
+it's head is 1 and its tail is 4.
+so the big O of this tree is O(n).
+and this is the worst case scenario for a binary search tree.
+
+________________________________________________________________
+
+so for lookup, insert and remove in a binary search tree:
+average case: O(log n)
+worst case: O(n)
+
+so in this cases the binary search tree is better than a linked list.
+________________________________________________________________
+
+** insert in linked list is O(1) because we can insert at the head or tail in constant time.
+so i want to point this out because if you get a question, say in an interview and thay
+say we need to be able to add data to a data structure very quickly, but retrieval speed is not very important.
+because we're not going to go retrieving data very often.
+but we could have bursts of data coming in and we want to make sure nothing dropped.
