@@ -1,31 +1,72 @@
-def insertion_sort(self):
-    if self.length < 2:
-        return
+class Node:
+    def __init__ (self, value):
+        self.value = value
+        self.next = None
     
-    sorted_head = self.head
-    current = self.head.next
-    sorted_head.next = None
+class Linked_list:
+    def __init(self, value):
+        def __init__(self, value):
+            new_node = Node(value)
+            self.head = new_node
+            self.tail = new_node
+            self.length = 1
     
-    while current:
-        next_node = current.next
-        
-        # Insert at beginning
-        if current.value < sorted_head.value:
-            current.next = sorted_head
-            sorted_head = current
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp)
+            temp = temp.next
+
+    def append(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
         else:
-            # Find insertion point
-            search = sorted_head
-            while search.next and search.next.value < current.value:
-                search = search.next
-            current.next = search.next
-            search.next = current
+            self.tail.next = new_node
+            self.tail = new_node
+        self.length +=1 
+        return True
+
+    # def pop(self):
+    #     if self.length == 0:
+    #         return None
+    #     temp = self.head
+    #     pre = self.head
+    #     while (temp.next):
+    #         pre = temp
+    #         temp = temp.next
+    #     self.tail = pre
+    #     self.tail.next = None
+    #     self.length -= 1
+    #     if self.length == 0:
+    #         self.head = None
+    #         self.tail = None
+    #     return temp
         
-        current = next_node
+    def pop(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        pre = self.head
+        while temp.next:
+            pre = temp
+            temp = temp.next 
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        return temp
     
-    self.head = sorted_head
-    # Update tail
-    temp = self.head
-    while temp.next:
-        temp = temp.next
-    self.tail = temp
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+        return True

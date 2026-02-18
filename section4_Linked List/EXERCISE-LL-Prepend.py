@@ -51,7 +51,7 @@ class LinkedList:
     #                             #
     ###############################
 
-    def prepend(self, value):
+    def prepend(self, value): # means add the new node to the first item
         new_node = Node(value)
         if self.length == 0:
             self.head = new_node

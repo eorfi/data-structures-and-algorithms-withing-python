@@ -3,7 +3,6 @@ class Node:
         self.value = value
         self.next = None
         
-
 class LinkedList:
     def __init__(self, value):
         new_node = Node(value)
@@ -44,7 +43,7 @@ class LinkedList:
             self.tail = None
         return temp
 
-    def prepend(self, value):
+    def prepend(self, value): # means add to the beginning of the list
         new_node = Node(value)
         if self.length == 0:
             self.head = new_node
